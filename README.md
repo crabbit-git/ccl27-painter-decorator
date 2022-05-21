@@ -16,4 +16,6 @@ Not a whole lot. To do anything much at all, you'll at least need [Node.js](http
 
 ## Limitations
 
+My reading of the brief is such that I believe it heavily implies that only one type of paint need be stocked, or at least that all types of paint can be considered equivalent. So if the decorator bought 3 different cans containing 3 different paints, the room would potentially end up looking like bad modern art, but that would be considered valid for the purposes of the model being described in the brief. Ideally, I would rather have additional checks to specify which particular paint the customer wants to be used, and run all the other checks on only that one product. So for instance, rather than calculating the total volume of paint overall, only calculate the total volume of that one specific paint (whether the decorator has 1 can or 20 cans of it in stock).
+
 The minimum viable product required only that rooms could be painted by decorators as long as they had enough paint, but not that the paint would actually be used up in the process, which is obviously quite nonsensical. Only in the extensions was it specified that the paint would be depleted when a room is painted. Nonetheless, I delivered the MVP first; I'll rework it later to use up paint and thus make more logical sense.

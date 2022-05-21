@@ -9,9 +9,11 @@ Paint.prototype.checkIfEmpty = function() {
         return false;
     }
 }
-Paint.prototype.emptySelf = function() {
+Paint.prototype.emptySelf = function(amount = this.volume) {
     if (this.checkIfEmpty() === false) {
-        this.volume = 0;
+        if (this.volume >= amount) {
+            this.volume -= amount;
+        }
     }
 }
 module.exports = Paint;

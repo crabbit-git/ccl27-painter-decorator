@@ -14,7 +14,7 @@ describe('Decorator', function() {
     beforeEach(function() {
         paint1 = new Paint(10);
         paint2 = new Paint(5);
-        paint3 = new Paint(10);
+        paint3 = new Paint(12);
         decorator = new Decorator();
         room = new Room(25);
     });
@@ -49,5 +49,10 @@ describe('Decorator', function() {
         decorator.addPaint(paint3);
         decorator.paintRoom(room);
         assert.strictEqual(room.isPainted, true);
+        assert.deepStrictEqual(decorator.stock, [
+            new Paint(0),
+            new Paint(0),
+            new Paint(2),
+        ])
     });
 });

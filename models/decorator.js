@@ -22,6 +22,22 @@ Decorator.prototype.checkIfSufficientPaint = function(room) {
 }
 Decorator.prototype.paintRoom = function(room) {
     if (this.checkIfSufficientPaint(room) === true) {
+        let paintAvailable = this.totalPaintVolume()
+        let paintUsed = 0;
+        while (paintUsed < room.wallArea) {
+            for (let paint of this.stock) {
+                if (paint.volume <= (room.wallArea - paintUsed)) {
+                    paintUsed += paint.volume;
+                    paint.emptySelf(paint.volume);
+                    paintAvailable = this.totalPaintVolume();
+                }
+                else {
+                    climacticStrokes = (room.wallArea - paintUsed);
+                    paintUsed += (climacticStrokes);
+                    paint.emptySelf(climacticStrokes);
+                }
+            }
+        }
         room.isPainted = true;
     }
 }
