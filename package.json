@@ -1,0 +1,23 @@
+{
+  "name": "ccl27-painter-decorator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crabbit-git/ccl27-painter-decorator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crabbit-git/ccl27-painter-decorator/issues"
+  },
+  "homepage": "https://github.com/crabbit-git/ccl27-painter-decorator#readme",
+  "devDependencies": {
+    "mocha": "^10.0.0"
+  }
+}
