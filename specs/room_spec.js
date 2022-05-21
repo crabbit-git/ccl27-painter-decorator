@@ -21,8 +21,8 @@ describe('Room', function() {
     });
 
     it('should be able to be painted', function() {
-        let decorator = new Decorator();
-        let paint = new Paint(30);
+        let decorator = new Decorator('Vince');
+        let paint = new Paint('Crown Pure Brilliant White Matt', 30);
         decorator.addPaint(paint);
         decorator.paintRoom(room);
         assert.strictEqual(room.isPainted, true);

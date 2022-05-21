@@ -12,11 +12,11 @@ describe('Decorator', function() {
     let room;
 
     beforeEach(function() {
-        paint1 = new Paint(10);
-        paint2 = new Paint(5);
-        paint3 = new Paint(12);
-        decorator = new Decorator();
-        room = new Room(25);
+        paint1 = new Paint('Crown Pure Brilliant White Matt', 10);
+        paint2 = new Paint('Crown Pure Brilliant White Matt', 5);
+        paint3 = new Paint('Crown Pure Brilliant White Matt', 10);
+        decorator = new Decorator('Vince');
+        room = new Room(23);
     });
 
     it('should start with no paint in stock', function() {
@@ -50,9 +50,9 @@ describe('Decorator', function() {
         decorator.paintRoom(room);
         assert.strictEqual(room.isPainted, true);
         assert.deepStrictEqual(decorator.stock, [
-            new Paint(0),
-            new Paint(0),
-            new Paint(2),
+            new Paint('Crown Pure Brilliant White Matt', 0),
+            new Paint('Crown Pure Brilliant White Matt', 0),
+            new Paint('Crown Pure Brilliant White Matt', 2),
         ]);
     });
 
@@ -63,7 +63,7 @@ describe('Decorator', function() {
         decorator.paintRoom(room);
         decorator.discardEmpties();
         assert.deepStrictEqual(decorator.stock, [
-            new Paint(2),
+            new Paint('Crown Pure Brilliant White Matt', 2),
         ]);
     });
 });

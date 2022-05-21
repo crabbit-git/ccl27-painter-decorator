@@ -6,7 +6,7 @@ describe('Paint', function() {
     let paint;
 
     beforeEach(function() {
-        paint = new Paint(5);
+        paint = new Paint('Crown Pure Brilliant White Matt', 5);
     });
 
     it('should have a volume in litres', function() {

@@ -1,4 +1,5 @@
-const Decorator = function() {
+const Decorator = function(name) {
+    this.name = name;
     this.stock = [];
 }
 Decorator.prototype.addPaint = function(paint) {

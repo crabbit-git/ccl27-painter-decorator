@@ -1,4 +1,5 @@
-const Paint = function(volume) {
+const Paint = function(name, volume) {
+    this.name = name;
     this.volume = volume;
 }
 Paint.prototype.checkIfEmpty = function() {
