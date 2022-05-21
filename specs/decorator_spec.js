@@ -53,6 +53,17 @@ describe('Decorator', function() {
             new Paint(0),
             new Paint(0),
             new Paint(2),
-        ])
+        ]);
+    });
+
+    it('should be able to discard empty paint cans', function() {
+        decorator.addPaint(paint1);
+        decorator.addPaint(paint2);
+        decorator.addPaint(paint3);
+        decorator.paintRoom(room);
+        decorator.discardEmpties();
+        assert.deepStrictEqual(decorator.stock, [
+            new Paint(2),
+        ]);
     });
 });

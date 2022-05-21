@@ -41,4 +41,13 @@ Decorator.prototype.paintRoom = function(room) {
         room.isPainted = true;
     }
 }
+Decorator.prototype.discardEmpties = function() {
+    let filteredStock = [];
+    for (let paint of this.stock) {
+        if (paint.volume !== 0) {
+            filteredStock.push(paint);
+        }
+    }
+    this.stock = filteredStock;
+}
 module.exports = Decorator;
