@@ -6,12 +6,19 @@ describe('Paint', function() {
     let paint;
 
     beforeEach(function() {
-        paint = new Paint(volume);
+        paint = new Paint(5);
     });
 
-    it('should have a volume in litres');
+    it('should have a volume in litres', function() {
+        assert.strictEqual(paint.volume, 5)
+    });
 
-    it('should be able to check whether it\'s empty');
+    it('should be able to check whether it\'s empty', function() {
+        assert.strictEqual(paint.checkIfEmpty(), false);
+    });
 
-    it('should be able to empty itself');
+    it('should be able to empty itself', function() {
+        paint.emptySelf();
+        assert.strictEqual(paint.checkIfEmpty(), true);
+    });
 });

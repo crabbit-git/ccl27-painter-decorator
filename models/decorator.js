@@ -1,4 +1,4 @@
-const Decorator = function(stock) {
-    this.stock = stock;
+const Decorator = function() {
+    this.stock = [];
 }
 module.exports = Decorator;
