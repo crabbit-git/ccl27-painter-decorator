@@ -11,4 +11,18 @@ Decorator.prototype.totalPaintVolume = function() {
     }
     return totalPaintVolume;
 }
+Decorator.prototype.checkIfSufficientPaint = function(room) {
+    // Spec dictates that 1 litre of paint covers 1 square metre of wall, so...
+    if (this.totalPaintVolume() >= room.wallArea) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+Decorator.prototype.paintRoom = function(room) {
+    if (this.checkIfSufficientPaint(room) === true) {
+        room.isPainted = true;
+    }
+}
 module.exports = Decorator;
