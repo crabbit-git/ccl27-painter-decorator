@@ -1,4 +1,4 @@
-const Room = function(wallArea, isPainted = False) {
+const Room = function(wallArea, isPainted = false) {
     this.wallArea = wallArea;
     this.isPainted = isPainted;
 }

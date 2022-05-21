@@ -6,12 +6,16 @@ describe('Room', function() {
   let room;
 
   beforeEach(function () {
-    room = new Room(wallArea);
+    room = new Room(25);
   });
 
-  it('should have an area in square metres');
+  it('should have an area in square metres', function() {
+    assert.strictEqual(room.wallArea, 25);
+  });
 
-  it('should start unpainted');
+  it('should start unpainted', function() {
+    assert.strictEqual(room.isPainted, false);
+  });
 
   it('should be able to be painted');
 });
