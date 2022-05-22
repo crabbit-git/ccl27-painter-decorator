@@ -8,6 +8,7 @@ describe('Decorator', function() {
     let paint1;
     let paint2;
     let paint3;
+    let paint4;
     let decorator;
     let room;
 
@@ -15,6 +16,7 @@ describe('Decorator', function() {
         paint1 = new Paint('Crown Pure Brilliant White Matt', 10);
         paint2 = new Paint('Crown Pure Brilliant White Matt', 5);
         paint3 = new Paint('Crown Pure Brilliant White Matt', 10);
+        paint4 = new Paint('Dulux Pure Brilliant White Matt', 10);
         decorator = new Decorator('Vince');
         room = new Room(23);
     });
@@ -28,18 +30,20 @@ describe('Decorator', function() {
         assert.deepStrictEqual(decorator.stock, [paint1]);
     });
 
-    it('should be able to calculate total litres of paint in stock', function() {
+    it('should be able to calculate total litres of a given paint in stock', function() {
         decorator.addPaint(paint1);
         decorator.addPaint(paint2);
-        assert.strictEqual(decorator.totalPaintVolume(), 15);
+        decorator.addPaint(paint4);
+        assert.strictEqual(decorator.totalPaintVolume('Crown Pure Brilliant White Matt'), 15);
     });
 
     it('should be able to ascertain whether there is enough paint in stock to paint a given room', function() {
         decorator.addPaint(paint1);
         decorator.addPaint(paint2);
-        assert.strictEqual(decorator.checkIfSufficientPaint(room), false);
+        decorator.addPaint(paint4);
+        assert.strictEqual(decorator.checkIfSufficientPaint(room, 'Crown Pure Brilliant White Matt'), false);
         decorator.addPaint(paint3);
-        assert.strictEqual(decorator.checkIfSufficientPaint(room), true);
+        assert.strictEqual(decorator.checkIfSufficientPaint(room, 'Crown Pure Brilliant White Matt'), true);
     });
 
     it('should be able to paint a room if enough paint is in stock to do so', function() {
@@ -47,12 +51,14 @@ describe('Decorator', function() {
         decorator.addPaint(paint1);
         decorator.addPaint(paint2);
         decorator.addPaint(paint3);
-        decorator.paintRoom(room);
+        decorator.addPaint(paint4);
+        decorator.paintRoom(room, 'Crown Pure Brilliant White Matt');
         assert.strictEqual(room.isPainted, true);
         assert.deepStrictEqual(decorator.stock, [
             new Paint('Crown Pure Brilliant White Matt', 0),
             new Paint('Crown Pure Brilliant White Matt', 0),
             new Paint('Crown Pure Brilliant White Matt', 2),
+            new Paint('Dulux Pure Brilliant White Matt', 10)
         ]);
     });
 
@@ -60,10 +66,12 @@ describe('Decorator', function() {
         decorator.addPaint(paint1);
         decorator.addPaint(paint2);
         decorator.addPaint(paint3);
-        decorator.paintRoom(room);
+        decorator.addPaint(paint4);
+        decorator.paintRoom(room, 'Crown Pure Brilliant White Matt');
         decorator.discardEmpties();
         assert.deepStrictEqual(decorator.stock, [
             new Paint('Crown Pure Brilliant White Matt', 2),
+            new Paint('Dulux Pure Brilliant White Matt', 10)
         ]);
     });
 });

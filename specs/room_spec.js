@@ -24,7 +24,7 @@ describe('Room', function() {
         let decorator = new Decorator('Vince');
         let paint = new Paint('Crown Pure Brilliant White Matt', 30);
         decorator.addPaint(paint);
-        decorator.paintRoom(room);
+        decorator.paintRoom(room, 'Crown Pure Brilliant White Matt');
         assert.strictEqual(room.isPainted, true);
     });
 });
